@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <title> Document</title>
+  </head>
+  <body>
+    <div class="sidebar">
+            <div class="header">
+                <div class="list-item">
+                    <a href="#">
+                        <span class="description-header">Attendance Web</span>
+                    </a>
+                </div>
+
+                <div class="illustration">
+                    <img src="img/illustration.png" alt="">
+                </div>
+
+            <div class="main">
+                <div class="list-item">
+                    <a href="/admin">
+                        <img src="img/home.png" alt="" class="icon">
+                        <span class="description">Home</span>
+                    </a>
+                </div>
+                <div class="list-item">
+                    <a href="/employeeAdmin">
+                        <img src="img/employee.png" alt="" class="icon">
+                        <span class="description">Employee</span>
+                    </a>
+                </div>
+                <div class="list-item">
+                    <a href="/attendanceAdmin">
+                        <img src="img/attendance.png" alt="" class="icon">
+                        <span class="description">Attendance</span>
+                    </a>
+                </div>
+                <div class="list-item">
+                    <a href="/leaveAdmin">
+                        <img src="img/leave.png" alt="" class="icon">
+                        <span class="description">Leave</span>
+                    </a>
+                </div>
+                <div class="list-item">
+                    <a href="login">
+                        <img src="img/logout.png" alt="" class="icon">
+                        <span class="description">Logout</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    <div class="main-content">
+        <div class="card">
+            <div class="card-header">
+                Create Employee Data
+            </div>
+            <div class="card-body">
+                <form action="/employeeAdmin" method="POST">
+                    <div class="mb-2">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="name">
+                    </div>
+                    <div class="mb-2">
+                        <label for="position" class="form-label">Position</label>
+                        <input type="text" class="form-control" id="position" name="position">
+                    </div>
+                    <div class="mb-2">
+                        <label for="birth" class="form-label">Birth</label>
+                        <input type="date" class="form-control" id="birth" name="birth">
+                    </div>
+                    <div class="mb-2">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="text" class="form-control" id="phone" name="phone">
+                    </div>
+                    <div class="mb-2">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="text" class="form-control" id="email" name="email">
+                    </div>
+                    <div class="mb-2">
+                        <label for="address" class="form-label">Address</label>
+                        <textarea class="form-control" id="address" rows="3" name="address"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                Employee Data
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Position</th>
+                            <th scope="col">Birth</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each employee}}
+                        <tr>
+                            <td>{{this.employeeId}}</td>
+                            <td>{{this.name}}</td>
+                            <td>{{this.position}}</td>
+                            <td>{{this.birth}}</td>
+                            <td>{{this.phone}}</td>
+                            <td>{{this.email}}</td>
+                            <td>{{this.address}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>  
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>
